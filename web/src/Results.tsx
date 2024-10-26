@@ -4,11 +4,11 @@ interface ResultsProps {
 
 const Results: React.FC<ResultsProps> = ({ image }) => {
   return (
-    <div className="bg-zinc-900 h-screen text-white flex items-center justify-center">
+    <div className="bg-gradient-to-b to-zinc-800 from-slate-600 h-screen text-white flex items-center justify-center">
       <div className="flex flex-col w-2/5 items-start m-auto ml-12">
-        <div className="text-2xl mb-4">Likely disease</div>
+        <div className="text-4xl mb-4">Likely disease</div>
         <div className="flex flex-col items-start">
-          <div>
+          <div className="text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
