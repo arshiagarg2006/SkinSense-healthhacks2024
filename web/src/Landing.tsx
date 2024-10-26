@@ -45,7 +45,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
   // }
   // };
 
-  const typewriterWords = ["spot", "mole", "blemish", "wound"];
+  const typewriterWords = ["spot..?", "mole..?", "blemish..?", "wound..?"];
 
   const startTypewriterText = () => {
     let i = 0;
@@ -83,7 +83,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
     <div className="h-screen bg-gradient-to-b from-teal-400 to-blue-700 text-white flex">
       <div className="m-auto text-center">
         <div className="font-bold text-6xl m-5">
-          What's this <a className="font-mono">{typewriterText}..?</a>
+          What's this <a className="font-mono">{typewriterText}</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
           Finding spots since 1999. With the power of AI, we can help you find
@@ -117,8 +117,8 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
                 <UploadIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Finding spots since 1999. With the power of AI, we can help you
-                find any skin problems you might have. Just upload a photo and
+                Snap a picture of your skin over time to track changes and
+                detect any signs of skin conditions.
               </div>
             </div>
           </div>
@@ -129,8 +129,8 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
                 <SparkleIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Finding spots since 1999. With the power of AI, we can help you
-                find any skin problems you might have. Just upload a photo and
+                Receive AI-powered feedback based on your photos to help
+                identify any potential skin issues.
               </div>
             </div>
           </div>
@@ -141,8 +141,8 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
                 <WandIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Finding spots since 1999. With the power of AI, we can help you
-                find any skin problems you might have. Just upload a photo and
+                If needed, we'll connect you with local dermatologists for
+                expert care and advice.
               </div>
             </div>
           </div>
