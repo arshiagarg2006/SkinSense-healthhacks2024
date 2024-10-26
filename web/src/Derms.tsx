@@ -1,7 +1,7 @@
-interface ReccProps {
-  name: string;
-  location: string;
-}
+// interface ReccProps {
+//   name: string;
+//   location: string;
+// }
 
 const Recc = () => {
   return (
