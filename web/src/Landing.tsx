@@ -62,7 +62,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
         </div>
         <div className="flex items-center justify-center">
           <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            onClick={() => {
               fileInputRef.current?.click();
             }}
             className="items-center bg-indigo-800 p-3 rounded-lg ring-1 ring-indigo-600 hover:ring-indigo-500 outline-none"
