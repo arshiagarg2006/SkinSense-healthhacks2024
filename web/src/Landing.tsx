@@ -1,5 +1,8 @@
 import { useRef, ChangeEvent } from "react";
 import "./App.css";
+import { IoCloudUploadOutline as UploadIcon } from "react-icons/io5";
+import { IoSparkles as SparkleIcon } from "react-icons/io5";
+import { FaWandMagicSparkles as WandIcon } from "react-icons/fa6";
 
 interface LandingProps {
   setStage: React.Dispatch<React.SetStateAction<"landing" | "results">>;
@@ -41,10 +44,17 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
   // }
   // };
 
+  const typewriterWords = ["spot", "mole", "blemish", "rash", "pimple"];
+
   return (
     <div className="h-screen bg-zinc-900 text-white flex">
       <div className="m-auto text-center">
-        <div className="font-bold text-6xl m-5">What's this spot...?</div>
+        <div className="font-bold text-6xl m-5">
+          What's this{" "}
+          <a className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-zinc-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-zinc-900">
+            {typewriterWords[0]}..?
+          </a>
+        </div>
         <div className="font-thin text-zinc-200 text-base m-5 max-w-lg mx-auto">
           Finding spots since 1999. With the power of AI, we can help you find
           any skin problems you might have. Just upload a photo and we'll do the
@@ -68,6 +78,44 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
             ref={fileInputRef}
             accept=".jpg, .jpeg, .png"
           />
+        </div>
+        <div className="flex mt-20">
+          <div className="flex items-center mx-5">
+            <div className="bg-cyan-500 p-3 rounded-lg outline-none">
+              <div className="items-center flex justify-center font-medium text-xl">
+                Upload photo
+                <UploadIcon className="ml-1" />
+              </div>
+              <div className="m-5 max-w-60 mx-auto">
+                Finding spots since 1999. With the power of AI, we can help you
+                find any skin problems you might have. Just upload a photo and
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center mx-5">
+            <div className="bg-orange-500 p-3 rounded-lg outline-none">
+              <div className="items-center flex justify-center">
+                Get Suggestions
+                <SparkleIcon className="ml-1" />
+              </div>
+              <div className="m-5 max-w-60 mx-auto">
+                Finding spots since 1999. With the power of AI, we can help you
+                find any skin problems you might have. Just upload a photo and
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center mx-5">
+            <div className="bg-lime-500 p-3 rounded-lg outline-none">
+              <div className="items-center flex justify-center">
+                Find Derma
+                <WandIcon className="ml-1" />
+              </div>
+              <div className="m-5 max-w-60 mx-auto">
+                Finding spots since 1999. With the power of AI, we can help you
+                find any skin problems you might have. Just upload a photo and
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
