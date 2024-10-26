@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 interface ResultsProps {
   image: FormData;
 }
 
 const Results: React.FC<ResultsProps> = ({ image }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gradient-to-b to-zinc-800 from-slate-600 h-screen text-white flex items-center justify-center">
       <div className="flex flex-col w-2/5 items-start m-auto ml-12">
@@ -18,7 +22,12 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
             culpa qui officia deserunt mollit anim id est laborum.
           </div>
         </div>
-        <button className="mt-10 items-center bg-indigo-800 p-3 rounded-lg ring-1 ring-indigo-600 hover:ring-indigo-500 outline-none">
+        <button
+          onClick={() => {
+            navigate("/derms");
+          }}
+          className="mt-10 items-center bg-indigo-800 p-3 rounded-lg ring-1 ring-indigo-600 hover:ring-indigo-500 outline-none"
+        >
           Find derms in my area!
         </button>
       </div>
