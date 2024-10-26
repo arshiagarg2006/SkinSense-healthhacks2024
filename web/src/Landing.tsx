@@ -94,7 +94,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
           </div>
           <div className="flex items-center mx-5">
             <div className="bg-orange-500 p-3 rounded-lg outline-none">
-              <div className="items-center flex justify-center">
+              <div className="items-center flex justify-center font-medium text-xl">
                 Get Suggestions
                 <SparkleIcon className="ml-1" />
               </div>
@@ -106,7 +106,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
           </div>
           <div className="flex items-center mx-5">
             <div className="bg-lime-500 p-3 rounded-lg outline-none">
-              <div className="items-center flex justify-center">
+              <div className="items-center flex justify-center font-medium text-xl">
                 Find Derma
                 <WandIcon className="ml-1" />
               </div>
