@@ -75,9 +75,9 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
           Is this <a className="font-mono">{typewriterText}..?</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
-          Finding spots since 1999. With the power of AI, we can help you find
-          any skin problems you might have. Just upload a photo and we'll do the
-          rest. And then, provide you with derm reccs in your area!
+          Using advanced image recognition, we help patients and physicans screen for monkeypox. 
+          Our two trained models allow for further examining of possible skin conditions. Upload 
+          a photo to begin. 
         </div>
         <div className="flex items-center justify-center">
           <button
