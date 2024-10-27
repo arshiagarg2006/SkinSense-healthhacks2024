@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Derms from "./Derms";
 import { StageProvider, useStage } from "./contexts/StageContext";
 import { ImageProvider, useImage } from "./contexts/ImageContext";
+import Info from "./Info";
 
 const Main = () => {
   const { stage, setStage } = useStage()!;
@@ -15,6 +16,7 @@ const Main = () => {
       {stage === "landing" && (
         <Landing setStage={setStage} setImage={setImage} />
       )}
+      {stage == "info-page" && <Info />}
       {stage === "results" && !!image && <Results image={image} />}
     </div>
   );

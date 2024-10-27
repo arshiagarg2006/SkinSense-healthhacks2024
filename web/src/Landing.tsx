@@ -21,9 +21,16 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
       console.log(file);
       const formData = new FormData();
       formData.append("image", file);
+      // fetch("", {
+      //   method: "POST",
+      //   body: formData,
+      // })
+      //   .then((response) => response.json())
+      //   .then((result) => console.log("Image uploaded successfully:", result))
+      //   .catch((error) => console.error("Error uploading image:", error));
       console.log(formData);
       setImage(formData);
-      setStage("results");
+      setStage("info-page");
     }
   };
 
