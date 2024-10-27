@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Times New Roman, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;

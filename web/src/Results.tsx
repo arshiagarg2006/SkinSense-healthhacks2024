@@ -26,7 +26,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
   ]);
 
   const [message, setMessage] = useState<string>("");
-  const [loading, _] = useState<boolean>(true);
+  const [_, __] = useState<boolean>(true);
 
   const handleMessageSend = (message: string): void => {
     console.log(message);
@@ -69,10 +69,13 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
           Find derms in my area!
         </button>
       </div>
-      <div className="w-2/5 justify-center overflow-y-scroll h-full border-l-2">
-        <div>Chat</div>
-        <div className="flex">
-          <div className="mx-auto w-4/5">
+      <div className="w-2/5 justify-center h-full ring-2 ring-zinc-300">
+        <div className="flex flex-col h-screen bg-zinc-900">
+          <div className="bg-zinc-800 p-4 flex items-center shadow-md">
+            <h1 className="text-xl font-semibold">Chatbot</h1>
+          </div>
+
+          <div className="flex-1 overflow-y-auto p-4">
             {chat.map((chat: Chat, i: number, arr) => {
               const isSameSenderAsPrevious =
                 i > 0 && arr[i - 1].from === chat.from;
@@ -85,7 +88,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
                     key={i}
                     className={`p-2 ${
                       isSameSenderAsPrevious ? "mt-1 rounded-tl-none" : "my-2"
-                    } mx-4 rounded-xl w-fit max-w-52 bg-indigo-600 mr-auto self-start ${
+                    } mx-4 rounded-xl w-fit max-w-52 bg-zinc-800 mr-auto self-start ${
                       isSameSenderAsNext ? "mb-1 rounded-es-none" : "mb-2"
                     } ${
                       isSameSenderAsNext && isSameSenderAsPrevious
@@ -102,7 +105,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
                     key={i}
                     className={`p-2 ${
                       isSameSenderAsPrevious ? "mt-1 rounded-tr-none" : "my-2"
-                    } mx-4 rounded-xl w-fit max-w-52 bg-zinc-800 ml-auto self-end ${
+                    } mx-4 rounded-xl w-fit max-w-52 bg-blue-600 ml-auto self-end ${
                       isSameSenderAsNext ? "mb-1 rounded-br-none" : "mb-2"
                     } ${
                       isSameSenderAsNext && isSameSenderAsPrevious
@@ -115,32 +118,28 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
                 );
               }
             })}
-            {loading && (
-              <div className="p-2 my-2 mx-4 rounded-lg max-w-52 bg-zinc-600 mr-auto self-start">
-                Typing...
-              </div>
-            )}
-            <form action="" className="flex">
-              <div className="flex bg-zinc-900 p-3 ring-2 ring-zinc-700 rounded-full px-4 w-full">
-                <input
-                  type="text"
-                  className="outline-none w-full bg-zinc-900"
-                  value={message}
-                  placeholder="Message the smort bot"
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-                <button
-                  type="submit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (message.trim() === "") return;
-                    handleMessageSend(message);
-                  }}
-                >
-                  <SendIcon />
-                </button>
-              </div>
-            </form>
+          </div>
+
+          <div className="p-4 flex items-center">
+            <input
+              type="text"
+              className="flex-1 py-2 px-4 border bg-zinc-900 border-none rounded-full outline-none ring-2 ring-zinc-800 focus:ring-zinc-700"
+              placeholder="Type a message..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyPress={(e) =>
+                e.key === "Enter" && handleMessageSend(message)
+              }
+            />
+            <button
+              className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-full"
+              onClick={() => {
+                if (!message) return;
+                handleMessageSend(message);
+              }}
+            >
+              <SendIcon />
+            </button>
           </div>
         </div>
       </div>
