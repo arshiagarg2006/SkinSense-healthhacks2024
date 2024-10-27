@@ -2,7 +2,7 @@ import requests
 import json
 
 # Define the base URL of the Flask app
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = "http://vq79pnsgjj.us-west-2.awsapprunner.com"
 
 # DONT USE THIS
 def test_create_prompt():

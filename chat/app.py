@@ -4,8 +4,8 @@ import requests
 from groq import Groq
 import json
 
-from dotenv import load_dotenv
-load_dotenv()
+""" from dotenv import load_dotenv
+load_dotenv() """
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY"),
