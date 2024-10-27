@@ -3,9 +3,10 @@ import "./App.css";
 import { IoCloudUploadOutline as UploadIcon } from "react-icons/io5";
 import { IoSparkles as SparkleIcon } from "react-icons/io5";
 import { FaWandMagicSparkles as WandIcon } from "react-icons/fa6";
+import { Stages } from "./contexts/StageContext";
 
 interface LandingProps {
-  setStage: React.Dispatch<React.SetStateAction<"landing" | "results">>;
+  setStage: React.Dispatch<React.SetStateAction<Stages>>;
   setImage: React.Dispatch<React.SetStateAction<FormData | null>>;
 }
 

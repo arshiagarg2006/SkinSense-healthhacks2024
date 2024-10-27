@@ -1,8 +1,10 @@
 import { useContext, createContext, useState } from "react";
 
+export type Stages = "landing" | "info-page" | "results";
+
 interface StageContext {
-  stage: "landing" | "results";
-  setStage: React.Dispatch<React.SetStateAction<"landing" | "results">>;
+  stage: Stages;
+  setStage: React.Dispatch<React.SetStateAction<Stages>>;
 }
 
 const StageContext = createContext<StageContext | undefined>(undefined);
@@ -10,7 +12,7 @@ const StageContext = createContext<StageContext | undefined>(undefined);
 export const useStage = () => useContext(StageContext);
 
 export const StageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [stage, setStage] = useState<"landing" | "results">("landing");
+  const [stage, setStage] = useState<Stages>("landing");
 
   return (
     <StageContext.Provider value={{ stage, setStage }}>
