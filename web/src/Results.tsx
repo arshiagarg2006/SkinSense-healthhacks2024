@@ -37,7 +37,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
   };
 
   return (
-    <div className="bg-gradient-to-b to-zinc-800 from-slate-600 h-screen text-white flex items-center justify-center">
+    <div className="bg-zinc-900 h-screen text-white flex items-center justify-center">
       <div className="flex flex-col w-3/5 items-start m-auto ml-12 h-full">
         <img
           src={
@@ -46,9 +46,9 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
               : ""
           }
           alt="Uploaded"
-          className="w-2/5 h-auto max-w-full max-h-full rounded-lg"
+          className="w-2/5 h-auto max-w-full max-h-full rounded-lg my-10"
         />
-        <div className="text-4xl mb-4">Likely disease</div>
+        <div className="text-4xl mb-4">Likely disease: Eczema</div>
         <div className="flex flex-col items-start">
           <div className="text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
