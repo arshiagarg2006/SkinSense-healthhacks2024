@@ -45,7 +45,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
   // }
   // };
 
-  const typewriterWords = ["spot..?", "mole..?", "blemish..?", "wound..?"];
+  const typewriterWords = ["monkeypox", "eczema", "psoriasis", "melanoma"];
 
   const startTypewriterText = () => {
     let i = 0;
@@ -83,7 +83,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
     <div className="h-screen bg-gradient-to-b from-teal-400 to-blue-700 text-white flex">
       <div className="m-auto text-center">
         <div className="font-bold text-6xl m-5">
-          What's this <a className="font-mono">{typewriterText}</a>
+          Is this <a className="font-mono">{typewriterText}..?</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
           Finding spots since 1999. With the power of AI, we can help you find
