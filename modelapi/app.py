@@ -11,7 +11,7 @@ app = Flask(__name__)
 # Enable CORS for the entire app
 CORS(app)
 
-# monkey_model = YOLO()
+monkey_model = YOLO("monkey_best.pt")
 skin_model = YOLO("skin_best.pt")
 
 
@@ -22,6 +22,7 @@ def hello_world():
 
 @app.post("/predict")
 def predict():
+    # get image
     file = request.files["image"]
 
     # If no file is selected
@@ -34,13 +35,18 @@ def predict():
     image = Image.open(io.BytesIO(frame))
 
     print(type(image))
-    results = skin_model([image])
-    predClass = results[0].probs.top1
+    prelim_results = monkey_model([image])
+    prelim_class = prelim_results[0].probs.top1
+    # prelim_class interpretation {0: 'Healthy', 1: 'Monkeypox', 2: 'Other'}
 
-    return jsonify({"top1": predClass}), 200
+    final_class = -1  # initializing variable for return
 
-    # else:
-    #     return jsonify({"error": "File type not allowed"}), 400
+    if prelim_class == 0:
+        final_class = -1  # change to match skin_classes file
+    elif prelim_class == 1:
+        final_class = 20  # change to match skin_classes file
+    else:
+        skin_results = skin_model([image])
+        final_class = skin_results[0].probs.top1
 
-
-# read image file
+    return jsonify({"top1": final_class}), 200
