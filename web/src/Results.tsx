@@ -40,22 +40,6 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
 
     // send prompt to backend
     setChat((chat) => [...chat, { from: "user", message }]);
-
-    setTimeout(() => {
-      setChat((chat) => [
-        ...chat,
-        {
-          from: "bot",
-          message:
-            "It's rare, but monkeypox can cause severe health issues or death. Complications can cause many things like neurologic complications, and complications from mucosal lesions. People with weak immunity, like those with advanced HIV infection or transplant recipients, are more likely to experience severe illness.",
-        },
-        {
-          from: "bot",
-          message:
-            "Drinking plenty of water and getting a good amount of rest can help, taking over the counter medication.. relieving the itchiness using antihistamine drugs and taking a bath in oatmeal. There's also anti itching medication that can be prescribed by your doctor.",
-        },
-      ]);
-    }, 1000);
     setMessage("");
   };
 
