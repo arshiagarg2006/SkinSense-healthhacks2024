@@ -2,7 +2,7 @@ import requests
 import json
 
 # Define the base URL of the Flask app
-BASE_URL = "http://vq79pnsgjj.us-west-2.awsapprunner.com"
+BASE_URL = "http://127.0.0.1:5000"
 
 # DONT USE THIS
 def test_create_prompt():
@@ -57,7 +57,7 @@ def test_search_resources():
 # Run all tests
 if __name__ == "__main__":
     print("Running tests for Flask app...\n")
-    test_create_prompt()
+    # test_create_prompt()
     test_chat()
     test_create_summary()
     test_search_resources()

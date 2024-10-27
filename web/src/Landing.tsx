@@ -8,9 +8,14 @@ import { Stages } from "./contexts/StageContext";
 interface LandingProps {
   setStage: React.Dispatch<React.SetStateAction<Stages>>;
   setImage: React.Dispatch<React.SetStateAction<FormData | null>>;
+  setFilename: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
+const Landing: React.FC<LandingProps> = ({
+  setStage,
+  setImage,
+  setFilename,
+}) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [typewriterText, setTypewriterText] = useState<string>("");
 
@@ -21,6 +26,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
       console.log(file);
       const formData = new FormData();
       formData.append("image", file);
+      setFilename(file.name);
       // fetch("", {
       //   method: "POST",
       //   body: formData,
