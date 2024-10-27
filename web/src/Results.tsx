@@ -50,23 +50,23 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
         />
         <div className="text-4xl mb-4">Likely disease: Eczema</div>
         <div className="flex flex-col items-start">
-          <div className="text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <div className="text-lg max-w-2xl">
+            It looks like you're experiencing symptoms consistent with
+            eczema—persistent itching, dry or flaky patches, redness, or cracked
+            skin that isn't improving with basic moisturizers. Given the
+            severity, seeing a dermatologist would be beneficial. They can
+            provide a clear diagnosis and recommend treatments like prescription
+            creams and skincare adjustments to help manage and prevent
+            flare-ups.
           </div>
         </div>
         <button
           onClick={() => {
             navigate("/derms");
           }}
-          className="mt-10 items-center bg-indigo-800 p-3 rounded-lg ring-1 ring-indigo-600 hover:ring-indigo-500 outline-none"
+          className="mt-10 items-center bg-red-800 p-3 rounded-lg ring-1 ring-red-600 hover:ring-red-500 outline-none"
         >
-          Find derms in my area!
+          Find derms (Highly Reccomened)
         </button>
       </div>
       <div className="w-2/5 justify-center h-full ring-2 ring-zinc-300">
