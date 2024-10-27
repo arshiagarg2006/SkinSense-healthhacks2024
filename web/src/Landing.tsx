@@ -81,9 +81,10 @@ const Landing: React.FC<LandingProps> = ({
           Is this <a className="font-mono">{typewriterText}..?</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
-          Using advanced image recognition, we help patients and physicans screen for monkeypox. 
-          Our cutting-edge object detection models allow for further examining of possible skin conditions. Upload 
-          a photo to begin. 
+          Using advanced image recognition, we help patients and physicans
+          screen for monkeypox. Our cutting-edge object detection models allow
+          for further examining of possible skin conditions. Upload a photo to
+          begin.
         </div>
         <div className="flex items-center justify-center">
           <button
@@ -112,8 +113,8 @@ const Landing: React.FC<LandingProps> = ({
                 <UploadIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Snap a picture of your skin over time to track changes and
-                detect any signs of skin conditions.
+                Snap a picture of your skin to detect signs of monkeypox and
+                other skin conditions.
               </div>
             </div>
           </div>
@@ -124,8 +125,8 @@ const Landing: React.FC<LandingProps> = ({
                 <SparkleIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Receive AI-powered feedback based on your photos to help
-                identify monkeypox or potential skin conditions.
+                Receive AI-powered feedback and chat with a bot based on your
+                photos to help identify monkeypox or potential skin conditions.
               </div>
             </div>
           </div>
