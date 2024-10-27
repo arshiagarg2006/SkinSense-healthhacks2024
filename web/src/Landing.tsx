@@ -81,9 +81,9 @@ const Landing: React.FC<LandingProps> = ({
           Is this <a className="font-mono">{typewriterText}..?</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
-          Finding spots since 1999. With the power of AI, we can help you find
-          any skin problems you might have. Just upload a photo and we'll do the
-          rest. And then, provide you with derm reccs in your area!
+          Using advanced image recognition, we help patients and physicans screen for monkeypox. 
+          Our cutting-edge object detection models allow for further examining of possible skin conditions. Upload 
+          a photo to begin. 
         </div>
         <div className="flex items-center justify-center">
           <button
@@ -125,18 +125,18 @@ const Landing: React.FC<LandingProps> = ({
               </div>
               <div className="m-5 max-w-60 mx-auto">
                 Receive AI-powered feedback based on your photos to help
-                identify any potential skin issues.
+                identify monkeypox or potential skin conditions.
               </div>
             </div>
           </div>
           <div className="flex items-center mx-5">
             <div className="bg-lime-500 p-3 rounded-lg outline-none drop-shadow-xl">
               <div className="items-center flex justify-center font-medium text-xl">
-                Find Derma
+                Locate Derms
                 <WandIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                If needed, we'll connect you with local dermatologists for
+                We'll connect you with local dermatologists in your area for
                 expert care and advice.
               </div>
             </div>
