@@ -74,7 +74,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
           <div>
             {imageShown && (
               <div className="flex flex-wrap mt-4">
-                <img src={"0.png"} alt="Eczema 1" className="w-1/3" />
+                <img src={"0.jpg"} alt="Eczema 1" className="w-1/3" />
               </div>
             )}
           </div>
