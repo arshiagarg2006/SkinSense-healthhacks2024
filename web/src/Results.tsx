@@ -14,6 +14,8 @@ interface Chat {
 const Results: React.FC<ResultsProps> = ({ image }) => {
   const navigate = useNavigate();
 
+  const [imageShown, setImageShown] = useState<boolean>(false);
+
   const [chat, setChat] = useState<Chat[]>([
     { from: "bot", message: "Hello! How can I help you today?" },
     { from: "user", message: "I would like to know what disease I have." },
@@ -46,7 +48,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
               : ""
           }
           alt="Uploaded"
-          className="w-2/5 h-auto max-w-full max-h-full rounded-lg my-10"
+          className="w-1/5 h-auto max-w-full max-h-full rounded-lg my-10"
         />
         <div className="text-4xl mb-4">Likely disease: Eczema</div>
         <div className="flex flex-col items-start">
@@ -57,7 +59,23 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
             severity, seeing a dermatologist would be beneficial. They can
             provide a clear diagnosis and recommend treatments like prescription
             creams and skincare adjustments to help manage and prevent
-            flare-ups.
+            flare-ups.{" "}
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                setImageShown(!imageShown);
+              }}
+              className="text-blue-500 cursor-pointer"
+            >
+              {imageShown ? "Hide Images" : "Show sample images of Eczema"}
+            </a>
+          </div>
+          <div>
+            {imageShown && (
+              <div className="flex flex-wrap mt-4">
+                <img src={"0.png"} alt="Eczema 1" className="w-1/3" />
+              </div>
+            )}
           </div>
         </div>
         <button
