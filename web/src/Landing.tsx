@@ -126,11 +126,11 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
           <div className="flex items-center mx-5">
             <div className="bg-lime-500 p-3 rounded-lg outline-none drop-shadow-xl">
               <div className="items-center flex justify-center font-medium text-xl">
-                Find Derma
+                Locate Derms
                 <WandIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                If needed, we'll connect you with local dermatologists for
+                We'll connect you with local dermatologists in your area for
                 expert care and advice.
               </div>
             </div>
