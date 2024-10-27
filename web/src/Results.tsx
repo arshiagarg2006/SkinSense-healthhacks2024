@@ -26,7 +26,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
   ]);
 
   const [message, setMessage] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, _] = useState<boolean>(true);
 
   const handleMessageSend = (message: string): void => {
     console.log(message);
