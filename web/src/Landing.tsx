@@ -119,7 +119,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
               </div>
               <div className="m-5 max-w-60 mx-auto">
                 Receive AI-powered feedback based on your photos to help
-                identify any potential skin issues.
+                identify monkeypox or potential skin conditions.
               </div>
             </div>
           </div>
