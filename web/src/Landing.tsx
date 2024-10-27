@@ -76,7 +76,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
           Using advanced image recognition, we help patients and physicans screen for monkeypox. 
-          Our two trained models allow for further examining of possible skin conditions. Upload 
+          Our cutting-edge object detection models allow for further examining of possible skin conditions. Upload 
           a photo to begin. 
         </div>
         <div className="flex items-center justify-center">
