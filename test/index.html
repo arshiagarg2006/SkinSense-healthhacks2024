@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadImage()">Upload Image</button>
+    <script>
+      function uploadImage() {
+        const fileInput = document.getElementById("fileInput");
+        const file = fileInput.files[0];
+
+        if (!file) {
+          alert("Please select a file to upload.");
+          return;
+        }
+
+        const allowedTypes = ["image/jpeg", "image/png"];
+
+        if (!allowedTypes.includes(file.type)) {
+          alert("Only JPG and PNG files are allowed.");
+          return;
+        }
+
+        // Proceed with the upload if the file type is valid
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch("http://localhost:5000/predict", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((result) => console.log("Image uploaded successfully:", result))
+          .catch((error) => console.error("Error uploading image:", error));
+      }
+    </script>
+  </body>
+</html>
