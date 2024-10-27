@@ -34,25 +34,6 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
     }
   };
 
-  // try {
-  //   const response = await fetch("https://your-api-url.com/upload", {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: {
-  //     },
-  //   });
-
-  //   if (!response.ok) {
-  //     throw new Error("Upload failed: " + response.statusText);
-  //   }
-
-  //   const result = await response.json();
-  //   console.log("Image uploaded successfully:", result);
-  // } catch (error) {
-  //   console.error("Error uploading image:", error);
-  // }
-  // };
-
   const typewriterWords = ["monkeypox", "eczema", "psoriasis", "melanoma"];
 
   const startTypewriterText = () => {
