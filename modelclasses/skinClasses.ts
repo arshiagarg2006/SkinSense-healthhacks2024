@@ -1,5 +1,6 @@
 const SKIN_CLASSES = {
-"0":  "Nail Fungus and other Nail Disease",
+  "-1": "Healthy",
+  "0":  "Nail Fungus and other Nail Disease",
   "1":  "Exanthems and Drug Eruptions",
   "2":  "Atopic Dermatitis",
   "3":  "Seborrheic Keratoses and other Benign Tumors",
@@ -18,7 +19,10 @@ const SKIN_CLASSES = {
   "16":  "Poison Ivy  and other Contact Dermatitis",
   "17":  "Vasculitis",
   "18":  "Lupus and other Connective Tissue diseases",
-  "19":  "Systemic Disease"
+  "19":  "Systemic Disease",
+  "20": "Monkeypox"
+
 }
 
+// this is all classes (not just skin classes) --> includes healthy & monkeypox
 export default SKIN_CLASSES;
