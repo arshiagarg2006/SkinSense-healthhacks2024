@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useInfo } from "./contexts/InfoContext";
 import { useStage } from "./contexts/StageContext";
 
 const Info = () => {
   const { setStage } = useStage()!;
-
-  const [gender, setGender] = useState<"male" | "female" | "">("");
-  const [age, setAge] = useState<number>(0);
-  const [medications, setMedications] = useState<string>("");
-  const [additionalInfo, setAdditionalInfo] = useState<string>("");
+  const {
+    gender,
+    setGender,
+    age,
+    setAge,
+    medications,
+    setMedications,
+    additionalInfo,
+    setAdditionalInfo,
+  } = useInfo()!;
 
   const handleSubmit = () => {
     console.log(gender, age, medications, additionalInfo);

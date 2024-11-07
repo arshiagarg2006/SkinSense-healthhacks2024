@@ -8,9 +8,14 @@ import { Stages } from "./contexts/StageContext";
 interface LandingProps {
   setStage: React.Dispatch<React.SetStateAction<Stages>>;
   setImage: React.Dispatch<React.SetStateAction<FormData | null>>;
+  setFilename: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
+const Landing: React.FC<LandingProps> = ({
+  setStage,
+  setImage,
+  setFilename,
+}) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [typewriterText, setTypewriterText] = useState<string>("");
 
@@ -21,6 +26,7 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
       console.log(file);
       const formData = new FormData();
       formData.append("image", file);
+      setFilename(file.name);
       // fetch("", {
       //   method: "POST",
       //   body: formData,
@@ -75,9 +81,10 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
           Is this <a className="font-mono">{typewriterText}..?</a>
         </div>
         <div className="font-light text-zinc-200 text-base m-5 max-w-lg mx-auto">
-          Using advanced image recognition, we help patients and physicans screen for monkeypox. 
-          Our cutting-edge object detection models allow for further examining of possible skin conditions. Upload 
-          a photo to begin. 
+          Using advanced image recognition, we help patients and physicans
+          screen for monkeypox. Our cutting-edge object detection models allow
+          for further examining of possible skin conditions. Upload a photo to
+          begin.
         </div>
         <div className="flex items-center justify-center">
           <button
@@ -106,8 +113,8 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
                 <UploadIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Snap a picture of your skin over time to track changes and
-                detect any signs of skin conditions.
+                Snap a picture of your skin to detect signs of monkeypox and
+                other skin conditions.
               </div>
             </div>
           </div>
@@ -118,8 +125,8 @@ const Landing: React.FC<LandingProps> = ({ setStage, setImage }) => {
                 <SparkleIcon className="ml-1" />
               </div>
               <div className="m-5 max-w-60 mx-auto">
-                Receive AI-powered feedback based on your photos to help
-                identify monkeypox or potential skin conditions.
+                Receive AI-powered feedback and chat with a bot based on your
+                photos to help identify monkeypox or potential skin conditions.
               </div>
             </div>
           </div>

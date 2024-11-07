@@ -3,9 +3,11 @@ import os
 import requests
 from groq import Groq
 import json
+from flask_cors import CORS
 
-""" from dotenv import load_dotenv
-load_dotenv() """
+
+from dotenv import load_dotenv
+load_dotenv()
 
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY"),
@@ -17,6 +19,8 @@ SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 SERPER_URL = "https://google.serper.dev/search"
 
 app = Flask(__name__)
+
+CORS(app)
 
 # Define labels as a global variable
 labels = [

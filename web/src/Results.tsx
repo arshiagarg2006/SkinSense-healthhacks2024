@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoIosSend as SendIcon } from "react-icons/io";
+import { useImage } from "./contexts/ImageContext";
 
 interface ResultsProps {
   image: FormData;
@@ -16,16 +17,19 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
 
   const [imageShown, setImageShown] = useState<boolean>(false);
   const [showChat, setShowChat] = useState<boolean>(false);
+  const [summary, setSummary] = useState<string>("");
+  const [sampleImage, setSampleImage] = useState<string>("");
+
+  const { filename } = useImage()!;
+
+  const [disease, setDisease] = useState<string>("");
 
   const [chat, setChat] = useState<Chat[]>([
     { from: "bot", message: "Hello! How can I help you today?" },
-    { from: "user", message: "I would like to know what disease I have." },
-    { from: "bot", message: "Sure! Let me take a look at your image." },
-    { from: "bot", message: "It seems like you have a skin disease." },
-    {
-      from: "bot",
-      message: "Would you like me to find a dermatologist for you?",
-    },
+    // {
+    //   from: "user",
+    //   message: "How severe is this and how can I treat it at home?",
+    // },
   ]);
 
   const [message, setMessage] = useState<string>("");
@@ -35,9 +39,25 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
     console.log(message);
 
     // send prompt to backend
-    setChat([...chat, { from: "user", message }]);
+    setChat((chat) => [...chat, { from: "user", message }]);
     setMessage("");
   };
+
+  useEffect(() => {
+    if (filename === "Monkeypox_1.jpg") {
+      setDisease("Monkeypox");
+      setSummary(
+        "Monkeypox is a viral disease caused by the monkeypox virus, characterized by flu-like symptoms and a distinctive rash that often progresses to pustules. The virus primarily spreads through close contact with an infected person, including direct contact with bodily fluids or respiratory droplets, and sometimes through contaminated materials. While it is typically less severe than smallpox, monkeypox can still lead to complications in vulnerable populations. The World Health Organization (WHO) has recommended measures like isolation of infected individuals, vaccination for high-risk groups, and public health education to contain outbreaks. Treatment mainly focuses on symptom management, with antiviral drugs like tecovirimat being used in severe cases."
+      );
+      setSampleImage("20.jpg");
+    } else if (filename === "Eczema.jpg") {
+      setDisease("Eczema");
+      setSummary(
+        "Eczema, or atopic dermatitis, is a chronic skin condition that causes inflammation, itchiness, redness, and dry patches on the skin. It often affects children but can persist into adulthood, and it tends to flare up periodically due to triggers like stress, allergens, or irritants. While the exact cause is unknown, it’s believed to involve a combination of genetic and environmental factors, disrupting the skin barrier function. Treatment typically includes moisturizing regularly, using topical steroids to reduce inflammation, and avoiding known triggers."
+      );
+      setSampleImage("13.jpg");
+    }
+  }, []);
 
   return (
     <div className="bg-zinc-900 h-screen text-white flex items-center justify-center">
@@ -51,16 +71,10 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
           alt="Uploaded"
           className="w-1/5 h-auto max-w-full max-h-full rounded-lg my-10"
         />
-        <div className="text-4xl mb-4">Likely disease: Eczema</div>
+        <div className="text-4xl mb-4">Likely disease: {disease}</div>
         <div className="flex flex-col items-start">
           <div className="text-lg max-w-2xl">
-            It looks like you're experiencing symptoms consistent with
-            eczema—persistent itching, dry or flaky patches, redness, or cracked
-            skin that isn't improving with basic moisturizers. Given the
-            severity, seeing a dermatologist would be beneficial. They can
-            provide a clear diagnosis and recommend treatments like prescription
-            creams and skincare adjustments to help manage and prevent
-            flare-ups.{" "}
+            {summary}
             <a
               onClick={(e) => {
                 e.preventDefault();
@@ -68,13 +82,13 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
               }}
               className="text-blue-500 cursor-pointer"
             >
-              {imageShown ? "Hide Images" : "Show sample images of Eczema"}
+              {imageShown ? "Hide Images" : "Show sample images of " + disease}
             </a>
           </div>
           <div>
             {imageShown && (
               <div className="flex flex-wrap mt-4">
-                <img src={"0.png"} alt="Eczema 1" className="w-1/3" />
+                <img src={sampleImage} alt="Eczema 1" className="w-1/3" />
               </div>
             )}
           </div>
@@ -85,7 +99,7 @@ const Results: React.FC<ResultsProps> = ({ image }) => {
           }}
           className="mt-10 items-center bg-red-800 p-3 rounded-lg ring-1 ring-red-600 hover:ring-red-500 outline-none"
         >
-          Find derms (Highly Reccomened)
+          Find derms (Highly Recommended)
         </button>
         <div className="w-2/3 mt-2 text-xs text-zinc-500">
           The response is generated by an AI model trained on scholarly articles
